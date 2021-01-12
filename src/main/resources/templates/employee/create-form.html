@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management HR</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h1>Employee management</h1>
+    <hr>
+    <h2>Save Employee</h2>
+
+
+
+    <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
+        <input type="text" th:field="*{firstName}" placeholder="Employee First Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{lastName}" placeholder="Employee Last Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{email}" placeholder="Employee Email" class="form-control mb-4 col-4">
+
+        <input type="number" th:field="*{salary}" placeholder="Employee Salary" class="form-control mb-4 col-4">
+        <button type="submit" class="btn btn-info col-2"> Save Employee</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}"> Back to Employee List</a>
+</div>
+</body>
+</html>
