@@ -41,7 +41,7 @@
             <td th:text="${employee.firstName}"></td>
             <td th:text="${employee.lastName}"></td>
             <td th:text="${employee.email}"></td>
-            <td th:text="${employee.salary}"></td>
+            <td th:text="${employee.salary}">$</td>
             <td> <a th:href="@{/update/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/delete/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
             </td>
@@ -60,13 +60,13 @@
       <span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
      </span>
             </div>
-            <div class = "col-sm-1">
+            <div class = "col-sm-2">
                 <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
                 <span th:unless="${currentPage < totalPages}">Next</span>
             </div>
 
-            <div class="col-sm-1">
-                <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+            <div class="col-sm-2">
+                <a btn-sm th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
                 <span th:unless="${currentPage < totalPages}">Last</span>
             </div>
         </div>
