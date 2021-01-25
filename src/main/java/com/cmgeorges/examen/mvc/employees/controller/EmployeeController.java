@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
+@RequestMapping("/employee")
 public class EmployeeController {
 
     @Qualifier("employeeServiceImpl")
@@ -25,7 +26,7 @@ public class EmployeeController {
         return findPaginated(1, "firstName", "asc", model);
     }
 
-    @GetMapping("showNewEmployeeForm")
+    @GetMapping("/showNewEmployeeForm")
     public String showNewEmployeeForm(Model model){
 
         Employee employee = new Employee();
@@ -43,7 +44,7 @@ public class EmployeeController {
     @PostMapping("/saveEmployee")
     public String saveEmployee(@ModelAttribute("employee") Employee employee) {
         service.createEmployee(employee);
-        return "redirect:/";
+        return "redirect:/employee/";
     }
 
 
@@ -72,7 +73,7 @@ public class EmployeeController {
         // call delete employee method
         service.deleteEmployee(id);
 
-        return "redirect:/";
+        return "redirect:/employee/";
     }
 
 //    Pages Managing
